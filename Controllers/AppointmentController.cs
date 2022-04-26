@@ -12,5 +12,10 @@ namespace asp.net_core_5_InAndOut.Controllers
         {
             return View();
         }
+
+        public IActionResult Details(int id)
+        {
+            return Ok($"You have entered id = {id}");
+        }
     }
 }
