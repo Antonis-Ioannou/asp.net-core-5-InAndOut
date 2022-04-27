@@ -22,5 +22,10 @@ namespace asp.net_core_5_InAndOut.Controllers
             IEnumerable<Item> objList = _db.Item;
             return View(objList);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
