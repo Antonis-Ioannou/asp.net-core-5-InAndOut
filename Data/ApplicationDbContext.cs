@@ -8,6 +8,9 @@ namespace asp.net_core_5_InAndOut.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
 
+        }
     }
 }
