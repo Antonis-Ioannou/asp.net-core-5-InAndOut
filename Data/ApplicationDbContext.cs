@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using asp.net_core_5_InAndOut.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace asp.net_core_5_InAndOut.Data
         {
 
         }
+
+        public DbSet<Item> Item { get; set; }
     }
 }
