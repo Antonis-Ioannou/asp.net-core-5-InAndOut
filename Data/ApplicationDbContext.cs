@@ -15,5 +15,6 @@ namespace asp.net_core_5_InAndOut.Data
         }
 
         public DbSet<Item> Item { get; set; }
+        public DbSet<Expenses> Expenses { get; set; }
     }
 }
