@@ -19,6 +19,7 @@
                 <div class="form-group row">
                     <div class="col-6">
                         <input asp-for="ExpenseName" class="form-control" />
+                        <span asp-validation-for="ExpenseName" class="text-danger"></span>
                     </div>
                     <div class="col-6">
                         <input asp-for="Amount" class="form-control" />
