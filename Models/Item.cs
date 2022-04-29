@@ -13,11 +13,14 @@ namespace asp.net_core_5_InAndOut.Models
         public int Id { get; set; }
 
         [DisplayName("Borrower")]
+        [Required]
         public string Borrower { get; set; }
 
+        [Required]
         [DisplayName("Lender")]
         public string Lender { get; set; }
 
+        [Required]
         [DisplayName("Item name")]
         public string ItemName { get; set; }
     }

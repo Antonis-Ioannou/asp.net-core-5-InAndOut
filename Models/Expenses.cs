@@ -12,10 +12,13 @@ namespace asp.net_core_5_InAndOut.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
         [DisplayName("Expense")]
         public string ExpenseName { get; set; }
 
+        [Required]
         [DisplayName("Amount")]
-        public string Amount { get; set; }
+        [Range(1,double.MaxValue,ErrorMessage ="Amount out of range!!!")]
+        public double Amount { get; set; }
     }
 }
