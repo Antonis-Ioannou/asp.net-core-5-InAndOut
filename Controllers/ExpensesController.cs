@@ -43,10 +43,25 @@ namespace asp.net_core_5_InAndOut.Controllers
             return View(obj);
         }
 
+        //GET-Delete
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var obj = _db.Expenses.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
         //POST-Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int? id)
+        public IActionResult DeletePOST(int? id)
         {
             var obj = _db.Expenses.Find(id);
             if (obj == null)
