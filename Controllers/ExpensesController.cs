@@ -43,6 +43,35 @@ namespace asp.net_core_5_InAndOut.Controllers
             return View(obj);
         }
 
+        //GET-UpDate
+        public IActionResult Update(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Expenses.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        //POST-UpDate
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(Expenses obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Expenses.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
         //GET-Delete
         public IActionResult Delete(int? id)
         {
