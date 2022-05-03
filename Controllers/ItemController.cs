@@ -34,7 +34,62 @@ namespace asp.net_core_5_InAndOut.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Item obj)
         {
-            _db.Item.Add(obj);
+            if (ModelState.IsValid)
+            {
+                _db.Item.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+        //Get-Update
+        public IActionResult Update(int? id)
+        {
+            var obj = _db.Item.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        //POST-Update
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(Item obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Item.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+        //Get-Delete
+        public IActionResult Delete(int? id)
+        {
+            var obj = _db.Item.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        //POST-Delete
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePOST(int? id)
+        {
+            var obj = _db.Item.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.Item.Remove(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
